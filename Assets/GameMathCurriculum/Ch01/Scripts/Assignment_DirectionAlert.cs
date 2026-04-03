@@ -88,7 +88,7 @@ public class Assignment_DirectionAlert : MonoBehaviour
         {
             if (cross.y > 0)
             {
-                if (angle <= 20f)
+                if (angle < 20f)
                 {
                     return Direction.Front;
                 }
@@ -99,7 +99,7 @@ public class Assignment_DirectionAlert : MonoBehaviour
             }
             else
             {
-                if (angle <= 20f)
+                if (angle < 20f)
                 {
                     return Direction.Front;
                 }
