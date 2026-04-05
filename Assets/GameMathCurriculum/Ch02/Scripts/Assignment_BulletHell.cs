@@ -114,7 +114,12 @@ public class Assignment_BulletHell : MonoBehaviour
     private Vector3 CalculateFanDirection(int index, int total)
     {
         // TODO
-        return Vector3.forward;
+        float angleDegree = index * (fanAngle / total);
+        float angleRadian = angleDegree * Mathf.Deg2Rad;
+
+        Vector3 direction = new Vector3(Mathf.Cos(angleRadian), 0f, Mathf.Sin(angleRadian)).normalized;
+
+        return direction;
     }
     
     private void UpdateDebugUI()
