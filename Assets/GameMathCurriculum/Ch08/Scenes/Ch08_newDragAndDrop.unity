@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 545138690}
   - component: {fileID: 545138689}
   - component: {fileID: 545138693}
+  - component: {fileID: 545138694}
   m_Layer: 0
   m_Name: Cube1
   m_TagString: Target
@@ -154,7 +155,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -244,6 +245,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bf0a2a5060ef84ebee12d02046b875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragObject
+  terrain: {fileID: 1546188528}
+  moveSpeed: 100
+  color: {r: 0.9811321, g: 0.023139905, b: 0.023139905, a: 0}
+--- !u!54 &545138694
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545138688}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &701197233
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +342,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 83d43bc4572e6234d9e3573772590fa0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -425,7 +456,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 83d43bc4572e6234d9e3573772590fa0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -485,6 +516,7 @@ GameObject:
   - component: {fileID: 942125907}
   - component: {fileID: 942125906}
   - component: {fileID: 942125910}
+  - component: {fileID: 942125911}
   m_Layer: 0
   m_Name: Cube3
   m_TagString: Target
@@ -507,7 +539,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -597,6 +629,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bf0a2a5060ef84ebee12d02046b875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragObject
+  terrain: {fileID: 1546188528}
+  moveSpeed: 100
+  color: {r: 0.90103096, g: 0.9245283, b: 0.06541473, a: 0}
+--- !u!54 &942125911
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942125905}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1152000042
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +726,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 83d43bc4572e6234d9e3573772590fa0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -851,6 +913,7 @@ GameObject:
   - component: {fileID: 1426661721}
   - component: {fileID: 1426661720}
   - component: {fileID: 1426661724}
+  - component: {fileID: 1426661725}
   m_Layer: 0
   m_Name: Cube2
   m_TagString: Target
@@ -873,7 +936,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -963,6 +1026,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bf0a2a5060ef84ebee12d02046b875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragObject
+  terrain: {fileID: 1546188528}
+  moveSpeed: 100
+  color: {r: 0.09825563, g: 0.14161325, b: 0.9056604, a: 0}
+--- !u!54 &1426661725
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426661719}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1500937691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,8 +1142,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500937691}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19948278, y: 0.7738142, z: -0.29374924, w: 0.524528}
-  m_LocalPosition: {x: 496.0278, y: 124.799736, z: 577.73804}
+  m_LocalRotation: {x: 0.27342013, y: 0.6940156, z: -0.32706693, w: 0.58018184}
+  m_LocalPosition: {x: 490.29, y: 134.01, z: 575.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
