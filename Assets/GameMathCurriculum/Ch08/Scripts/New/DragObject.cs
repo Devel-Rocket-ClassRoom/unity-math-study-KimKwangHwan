@@ -4,11 +4,14 @@ using UnityEngine;
 public class DragObject : MonoBehaviour, IDraggable
 {
     private Vector3 startPosition;
+    private Vector3 originPosition;
     private bool inDropZone;
     private bool isDragged;
     private bool isDragging;
     private Vector3 draggedVector;
     private Transform dropZone;
+    private float timer;
+    private float returnDuration = 2f;
     [SerializeField] private Terrain terrain;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private Color color;
@@ -21,7 +24,7 @@ public class DragObject : MonoBehaviour, IDraggable
     }
     public void OnDragStart(Vector3 hitPoint)
     {
-        startPosition = transform.position;
+        originPosition = transform.position;
         draggedVector = transform.position - new Vector3(hitPoint.x, terrain.SampleHeight(transform.position) + GetComponent<Renderer>().bounds.size.y / 2f, hitPoint.z);
         isDragging = true;
     }
@@ -40,6 +43,7 @@ public class DragObject : MonoBehaviour, IDraggable
         }
         else
         {
+            startPosition = transform.position;
             isDragged = true;
         }
     }
@@ -48,11 +52,18 @@ public class DragObject : MonoBehaviour, IDraggable
     {
         if (!inDropZone && isDragged)
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed * Time.deltaTime);
+            timer += Time.deltaTime / returnDuration;
+            transform.position = Vector3.MoveTowards(startPosition, originPosition, timer * moveSpeed);
+            if (timer >= 1f)
+            {
+                transform.position = originPosition;
+                timer = 0f;
+            }
         }
-        if (transform.position == startPosition)
+        if (transform.position == originPosition)
         {
             isDragged = false;
+            timer = 0f;
         }
     }
 

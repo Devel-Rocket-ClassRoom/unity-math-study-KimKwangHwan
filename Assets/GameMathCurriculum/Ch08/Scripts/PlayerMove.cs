@@ -1,31 +1,37 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
     private float speed = 8f;
     private float rotateSpeed = 120f;
+    private Vector3 moveDirection;
+    private float rotateAngle;
+    private Rigidbody rb;
+    
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
-    // Update is called once per frame
+    private void FixedUpdate()
+    {
+        rb.MovePosition(transform.position + moveDirection * speed * Time.fixedDeltaTime);
+        rb.MoveRotation(transform.rotation * Quaternion.AngleAxis(rotateAngle * Time.fixedDeltaTime, transform.up));
+        
+    }
+
     void Update()
     {
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
+        float r = Input.GetAxis("Rotation");
 
-        if (h != 0f || v != 0f)
-        {
-            Vector3 direction = h * transform.right + v * transform.forward;
-            direction.Normalize();
+        moveDirection = h * transform.right + v * transform.forward;
+        moveDirection.Normalize();
+        rotateAngle = r * rotateSpeed;
 
-            transform.position = transform.position + direction * speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Rotate(0f, -rotateSpeed * Time.deltaTime, 0f);
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(0f, rotateSpeed * Time.deltaTime, 0f);
-        }
+        //transform.position = transform.position + direction * speed * Time.deltaTime;
+        //transform.Rotate(0f, r * rotateSpeed * Time.deltaTime, 0f);
     }
 }

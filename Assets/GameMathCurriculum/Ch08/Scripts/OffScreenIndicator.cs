@@ -28,6 +28,13 @@ public class OffScreenIndicator : MonoBehaviour
 
             bool isBehind = idPointInScreen.z < 0;
 
+            Vector3 local = cam.transform.InverseTransformPoint(indicators[i].transform.position);
+            Vector2 dir = new Vector2(local.x, local.y).normalized;
+            Vector2 center = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+            float scale = Mathf.Min(center.x / Mathf.Abs(dir.x), center.y / Mathf.Abs(dir.y));
+            Vector2 pos = center + dir * scale;
+            images[i].transform.position = new Vector2(Mathf.Clamp(pos.x, offset, Screen.width - offset), Mathf.Clamp(pos.y, offset, Screen.height - offset));
+
             if (isBehind)
             {
                 idPointInScreen.x = Screen.width - idPointInScreen.x;
@@ -36,8 +43,7 @@ public class OffScreenIndicator : MonoBehaviour
 
             if (isBehind || idPointInScreen.x < 0f || idPointInScreen.x > Screen.width || idPointInScreen.y < 0f || idPointInScreen.y > Screen.height)
             {
-                //Debug.Log($"{indicators[i].name}: {images[i].transform.position}");
-                images[i].transform.position = new Vector3(Mathf.Clamp(idPointInScreen.x, offset, Screen.width - offset), Mathf.Clamp(idPointInScreen.y, offset, Screen.height - offset), 0f);
+                //images[i].transform.position = new Vector3(Mathf.Clamp(idPointInScreen.x, offset, Screen.width - offset), Mathf.Clamp(idPointInScreen.y, offset, Screen.height - offset), 0f);
                 images[i].enabled = true;
             }
             else
